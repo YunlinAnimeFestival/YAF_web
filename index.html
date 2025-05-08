@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/YAF_web/svg/YF06_雲緣起LOGO.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>雲緣起-雲林動漫祭 Yunlin Anime Festival</title>
+    <script type="module" crossorigin src="/YAF_web/assets/index-DyKSDUj5.js"></script>
+    <link rel="stylesheet" crossorigin href="/YAF_web/assets/index-Dl4iZZDx.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/javascript">
+        (function(l) {
+            if (l.search && l.search.indexOf('?/') !== -1) {
+                var decoded = l.search.slice(2).split('&').map(function(s) {
+                    return s.replace(/~and~/g, '&');
+                }).join('?');
+                var path = decoded.split('?')[0];
+                var query = decoded.split('?')[1];
+                window.history.replaceState(null, null, l.pathname.slice(0, -1) + path + (query ? ('?' + query) : '') + l.hash);
+            }
+        }(window.location));
+    </script>
+  </body>
+</html>
