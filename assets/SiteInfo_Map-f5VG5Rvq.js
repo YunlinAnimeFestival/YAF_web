@@ -1,0 +1,1 @@
+import{_ as n,o as e,c as o,d as _,e as s,C as r}from"./index-aY0oRSRt.js";const a="/YAF_web/img/club_map.jpg",i={},p={src:a,height:"780",width:"974"};function m(t,c){return e(),o("img",p)}const f=n(i,[["render",m]]),d=_({__name:"SiteInfo_Map",setup(t){return(c,l)=>(e(),s(r,{title:"攤位位置圖",content:f,"is-component":!0}))}});export{d as default};
