@@ -1,0 +1,1 @@
+import{d as e,e as o,o as t,C as n}from"./index-BGzLD0rH.js";const _=e({__name:"ClubInfo_Rule",setup(r){return(a,c)=>(t(),o(n,{title:"參展規範",content:"/markdown/參展規範.md",isMarkdown:!0,"force-visible":!0}))}});export{_ as default};
