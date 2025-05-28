@@ -2,24 +2,202 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/YAF_web/svg/YF06_雲緣起LOGO.svg" />
+    <link rel="icon" type="image/svg+xml" href="/YAF_web/svg/YF05_雲緣起LOGO-01.svg" />
+
+    <!-- 優先預載入 logo，確保載入畫面能立即顯示 -->
+    <link rel="preload" href="/YAF_web/svg/YF05_雲緣起LOGO-01.svg" as="image" />
 
     <!-- 預載入關鍵圖片 -->
-    <link rel="preload" href="/YAF_web/svg/YF06_雲緣起LOGO.svg" as="image" />
-    <link rel="preload" href="/YAF_web/img/HomePage_Main_art_bg.png" as="image" />
-    <link rel="preload" href="/YAF_web/img/HomePage_Main_art_rock.png" as="image" />
     <link rel="preload" href="/YAF_web/img/HomePage_Main_art_Bush_R.png" as="image" />
-    <link rel="preload" href="/YAF_web/img/HomePage_Main_art_Bush_L.png" as="image" />
+      <link rel="preload" href="/YAF_web/img/HomePage_Main_art_Bush_L.png" as="image" />
+      <link rel="preload" href="/YAF_web/img/HomePage_Main_art_rock_back.png" as="image" />
+      <link rel="preload" href="/YAF_web/img/HomePage_Main_art_rock_back_2.png" as="image" />
+      <link rel="preload" href="/YAF_web/img/HomePage_Main_art_bg.png" as="image" />
+      <link rel="preload" href="/YAF_web/img/HomePage_Main_art_rock.png" as="image" />
+      <link rel="preload" href="/YAF_web/img/HomePage_Main_art_Fog.png" as="image" />
+    <link rel="preload" href="/YAF_web/img/HomePage_Main_art_Fog_2.png" as="image" />
+    <link rel="preload" href="/YAF_web/img/HomePage_Main_art_Bush_back.png" as="image" />
 
     <meta name="google-site-verification" content="z57Y0its4w_vzt-KxTnUJ1aBK8mBDYD41jFKjQxKTys" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>雲緣起-雲林動漫祭 Yunlin Anime Festival</title>
-    <script type="module" crossorigin src="/YAF_web/assets/index-CfS0mKpL.js"></script>
-    <link rel="stylesheet" crossorigin href="/YAF_web/assets/index-CUNgzRoQ.css">
+
+    <style>
+      /* 載入畫面樣式 */
+      #initial-loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+        opacity: 1;
+        transition: opacity 0.8s ease-out;
+      }
+
+      #initial-loading-overlay.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .initial-loading-content {
+        text-align: center;
+      }
+
+      .initial-loading-logo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .initial-logo-wrapper {
+        position: relative;
+        width: 280px;
+        height: 280px;
+      }
+
+      .initial-logo-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.2;
+        filter: brightness(0);
+      }
+
+      .initial-logo-mask {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0%;
+        overflow: hidden;
+        transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .initial-logo-foreground {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 280px;
+        filter: brightness(0);
+        opacity: 1;
+      }
+
+      /* 響應式設計 */
+      @media (max-width: 768px) {
+        .initial-logo-wrapper {
+          width: 200px;
+          height: 200px;
+        }
+        
+        .initial-logo-foreground {
+          height: 200px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .initial-logo-wrapper {
+          width: 160px;
+          height: 160px;
+        }
+        
+        .initial-logo-foreground {
+          height: 160px;
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="/YAF_web/assets/index-CgysCVwL.js"></script>
+    <link rel="stylesheet" crossorigin href="/YAF_web/assets/index-P-OEYVmQ.css">
   </head>
   <body>
-    <div id="app"></div>
+    <!-- 初始載入畫面 -->
+    <div id="initial-loading-overlay">
+      <div class="initial-loading-content">
+        <div class="initial-loading-logo-container">
+          <div class="initial-logo-wrapper">
+            <!-- 背景半透明 logo -->
+            <img 
+              class="initial-logo-background" 
+              src="/YAF_web/svg/YF05_雲緣起LOGO-01.svg" 
+              alt="雲緣起 Logo" 
+            />
+            <!-- 載入進度遮罩 -->
+            <div id="initial-logo-mask" class="initial-logo-mask">
+              <img 
+                class="initial-logo-foreground" 
+                src="/YAF_web/svg/YF05_雲緣起LOGO-01.svg" 
+                alt="雲緣起 Logo" 
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="app"></div>
+    
+    <script>
+      // 初始載入控制器
+      window.InitialLoader = {
+        progress: 0,
+        
+        // 更新載入進度
+        updateProgress: function(progress, text) {
+          this.progress = Math.min(Math.max(progress, 0), 100);
+          
+          // 更新遮罩高度（由下而上顯示）
+          const mask = document.getElementById('initial-logo-mask');
+          if (mask) {
+            mask.style.height = this.progress + '%';
+          }
+          
+          console.log(`初始載入: ${this.progress}% - ${text || ''}`);
+        },
+        
+        // 隱藏載入畫面
+        hide: function() {
+          const overlay = document.getElementById('initial-loading-overlay');
+          if (overlay) {
+            overlay.classList.add('fade-out');
+            setTimeout(() => {
+              overlay.style.display = 'none';
+            }, 800);
+          }
+        },
+        
+        // 檢查是否存在
+        isVisible: function() {
+          const overlay = document.getElementById('initial-loading-overlay');
+          return overlay && overlay.style.display !== 'none' && !overlay.classList.contains('fade-out');
+        }
+      };
+      
+      // 模擬初始載入進度
+      let initialProgress = 0;
+      const initialProgressInterval = setInterval(() => {
+        initialProgress += Math.random() * 10;
+        if (initialProgress >= 30) {
+          clearInterval(initialProgressInterval);
+          window.InitialLoader.updateProgress(30, 'Vue 應用程式載入中...');
+        } else {
+          window.InitialLoader.updateProgress(initialProgress, '載入基礎資源...');
+        }
+      }, 100);
+      
+      // 當 DOM 載入完成時
+      document.addEventListener('DOMContentLoaded', function() {
+        window.InitialLoader.updateProgress(50, 'DOM 載入完成');
+      });
+    </script>
+    
     <script type="text/javascript">
         (function(l) {
             if (l.search && l.search.indexOf('?/') !== -1) {
