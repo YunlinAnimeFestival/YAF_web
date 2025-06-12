@@ -1,0 +1,1 @@
+import{d as e,e as t,o,C as n}from"./index-BUJmsmge.js";const _=e({__name:"AboutUs",setup(r){return(a,s)=>(o(),t(n,{title:"關於雲緣起",content:"/markdown/關於雲緣起.md",isMarkdown:!0,"force-visible":!0}))}});export{_ as default};

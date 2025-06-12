@@ -1,0 +1,1 @@
+import{_ as n,o as e,c as o,d as s,e as _,C as r}from"./index-BUJmsmge.js";const a="/YAF_web/img/Map.jpg",i={},p={class:"img-fluid",src:a};function m(t,c){return e(),o("img",p)}const f=n(i,[["render",m]]),d=s({__name:"SiteInfo_Map",setup(t){return(c,l)=>(e(),_(r,{title:"活動會場圖",content:f,"is-component":!0}))}});export{d as default};

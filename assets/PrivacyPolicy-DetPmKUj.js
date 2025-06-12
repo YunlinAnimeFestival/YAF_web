@@ -1,0 +1,1 @@
+import{d as e,e as o,o as t,C as r}from"./index-BUJmsmge.js";const s=e({__name:"PrivacyPolicy",setup(c){return(n,a)=>(t(),o(r,{title:"隱私權政策",content:"/markdown/privacyPolicy.md",isMarkdown:!0,"force-visible":!0}))}});export{s as default};
