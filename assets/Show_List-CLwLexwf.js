@@ -1,0 +1,1 @@
+import{_ as s,o as e,c,d as n,e as r,C as _}from"./index-Kv2Nlrw5.js";const a="/YAF_web/img/programs.jpg",i={},m={class:"img-fluid",src:a};function p(t,o){return e(),c("img",m)}const l=s(i,[["render",p]]),d=n({__name:"Show_List",setup(t){return(o,f)=>(e(),r(_,{title:"表演時間表",content:l,"is-component":!0,disable:!0}))}});export{d as default};
