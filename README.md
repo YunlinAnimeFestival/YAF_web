@@ -24,6 +24,8 @@
 
 常見更新流程：
 
+`⚠️注意:確保你上傳的branch是在gh-page而不是main，不然無法顯示更新內容⚠️`
+
 1. 將新資料放到 `public/` 對應資料夾
   - 文字資料：`public/txt/`
   - Markdown 內容：`public/markdown/`
@@ -71,6 +73,22 @@
   - 子元件（`isComponent`，搭配 `componentProps`）
 - 進場淡入效果（scroll 觸發）與強制顯示（`forceVisible`）
 - 內容為空或 `disable` 時顯示「尚未開放」圖示
+
+
+## 如何更改網頁嵌入預覽
+
+
+- 前往`index.html`
+- 找到以下內容，並更改`property="og:description"`中的`content`內容文字
+
+'''
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="雲緣起官方網站">
+    <meta property="og:description" content="6/28 雲緣起YF08 雲林科技大學 歡迎一起雲緣啟動!">
+    <meta property="og:image" content="/img/logo.jpg">
+
+'''
 
 ## `ParallaxImage.vue` 運作邏輯
 
