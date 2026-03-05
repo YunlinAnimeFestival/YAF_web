@@ -80,6 +80,7 @@
 
 - 前往`index.html`
 - 找到以下內容，並更改`property="og:description"`中的`content`內容文字
+- 更新不會立即反映，需等待1~2天伺服器重新抓取
 
 ```
 
@@ -132,4 +133,5 @@
 若要更新 GitHub Pages（已設定 `gh-pages`）：
 
 - `npm run deploy`
+
 
