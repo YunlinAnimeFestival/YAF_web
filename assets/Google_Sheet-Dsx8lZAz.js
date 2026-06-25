@@ -1,0 +1,1 @@
+import{d as o,c as t,o as r,_ as s}from"./index-Dn6iI3IO.js";const c=["src","height"],h=o({__name:"Google_Sheet",props:{src:{},height:{}},setup(a){return(e,_)=>(r(),t("iframe",{src:e.src,height:e.height,width:"100%",frameborder:"0",marginheight:"0",marginwidth:"0"}," 載入中… ",8,c))}}),n=s(h,[["__scopeId","data-v-bbc463d0"]]);export{n as G};
